@@ -818,7 +818,7 @@ mod sys {
             WriteTotalTimeoutConstant: 0,
         };
 
-        let r = unsafe { SetCommTimeouts(handle, &mut timeouts) };
+        let r = unsafe { SetCommTimeouts(handle as HANDLE, &mut timeouts) };
         if r == 0 {
             return Err(io::Error::last_os_error());
         }
